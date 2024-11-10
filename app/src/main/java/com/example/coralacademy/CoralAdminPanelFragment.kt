@@ -98,10 +98,10 @@ class CoralAdminPanelFragment : Fragment() {
             val accountMemberStatus =
                 tableRow.findViewById<TextView>(R.id.account_member_status)
 
-            id.text = user.id.toString()
-            username.text = user.username
-            password.text = user.password
-            accountMemberStatus.text = if (user.coralMemberStatus) "Yes" else "No"
+            id.text = user.getId().toString()
+            username.text = user.getUser()
+            password.text = user.getPass()
+            accountMemberStatus.text = if (user.getMemStat()) "Yes" else "No"
 
             userDataTable.addView(tableRow)
         }

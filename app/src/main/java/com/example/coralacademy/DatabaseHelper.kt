@@ -36,18 +36,18 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
     fun insertData(user : User): Long {
         val db = this.writableDatabase
         val cv = ContentValues()
-        cv.put(COL_NAME,user.username)
-        cv.put(COL_PASS,user.password)
-        cv.put(COL_COR_STATUS, if (user.coralMemberStatus) 1 else 0)
+        cv.put(COL_NAME,user.getUser())
+        cv.put(COL_PASS,user.getPass())
+        cv.put(COL_COR_STATUS, if (user.getMemStat()) 1 else 0)
 
         val result = db.insert(TABLE_NAME,null,cv)
 
         if (result == -1L) {
-            Log.e("DatabaseError", "Failed to insert data for user: ${user.username}")
+            Log.e("DatabaseError", "Failed to insert data for user: ${user.getUser()}")
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
         }
         else {
-            Log.d("DatabaseSuccess", "Successfully inserted data for user: ${user.username}")
+            Log.d("DatabaseSuccess", "Successfully inserted data for user: ${user.getUser()}")
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
         }
 
