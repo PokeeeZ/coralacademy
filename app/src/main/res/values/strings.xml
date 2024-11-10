@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Coral Academy</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Introduction</string>
+    <string name="second_fragment_label">Login</string>
+    <string name="third_fragment_label">Create Account</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <!-- Strings used for Introduction page -->
+    <string name="introduction">
+        Welcome to Coral Academy!
+    </string>
+
+    <string name="intro_body1">
+        This app is run by Corallium, a student-led organization trying to spread awareness about dying coral reefs. (We also raise a coral tank!)
+    </string>
+
+    <string name="intro_body2">
+        The main functions on this app are the schedule, Corallium Calendar, submitting reimbursement forms, and a blog for non-members!
+    </string>
+
+    <string name="corallium_member_login_notice">
+        If you are a Corallium member, ask @Poke/Thomas ZHOU for your specific login details.
+    </string>
+
+    <!-- Strings for Login page -->
+
+    <string name="login_prompt">
+        Please log into your account:
+    </string>
+
+    <!-- Strings used for Create Account page -->
+
+    <string name="account_creation_prompt">
+        Create a username and password below!
+    </string>
+
+    <string name="password_creation_limitations">
+        Password needs to be 6-20 characters
+    </string>
+
+
+    <string name="corallium_member_prompt">
+        If you are a member of Corallium, contact @Poke on discord for your specific login details.
+    </string>
+
+
+    <!-- Strings used for Home Screen page -->
+
+    <string name="home_screen_welcome">
+        Welcome to Coral Academy!
+    </string>
+
+
+    <!-- Strings used for Admin Panel -->
+
+    <string name="admin_panel_title">
+        Admin Panel
+    </string>
+
+</resources>

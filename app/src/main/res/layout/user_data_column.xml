@@ -1,0 +1,50 @@
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/account_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-black"
+        android:text="ID"
+        android:textAlignment="center"
+        android:textColor="@color/corallium_red"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/account_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-black"
+        android:text="Username"
+        android:textAlignment="center"
+        android:textColor="@color/corallium_red"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/account_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-black"
+        android:text="Password"
+        android:textAlignment="center"
+        android:textColor="@color/corallium_red"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/account_member_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-black"
+        android:text="Member?"
+        android:textAlignment="center"
+        android:textColor="@color/corallium_red"
+        android:textSize="20sp" />
+
+</TableRow>
