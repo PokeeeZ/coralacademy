@@ -1,12 +1,12 @@
 package com.example.coralacademy
 
 class User {
-    private var id : Int = 0
-    private var username : String = ""
-    private var password : String = ""
-    private var coralMemberStatus : Boolean
+    private var id: Int = 0
+    private var username: String = ""
+    private var password: String = ""
+    private var coralMemberStatus: Boolean
 
-    constructor(id:Int,username:String,password:String,coralMemberStatus:Boolean) {
+    constructor(id: Int, username: String, password: String, coralMemberStatus: Boolean) {
         this.id = id
         this.username = username
         this.password = password
@@ -14,19 +14,19 @@ class User {
 
     }
 
-    public fun getId():Int {
+    fun getId(): Int {
         return id
     }
 
-    public fun getUser():String {
+    fun getUser(): String {
         return username
     }
 
-    public fun getPass():String {
+    fun getPass(): String {
         return password
     }
 
-    public fun getMemStat():Boolean {
+    fun getMemStat(): Boolean {
         return coralMemberStatus
     }
 }

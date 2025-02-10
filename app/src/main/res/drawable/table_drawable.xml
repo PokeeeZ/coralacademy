@@ -4,7 +4,8 @@
     >
     <corners
         android:topLeftRadius="12dp"
-        android:topRightRadius="12dp"
-        />
-    <stroke android:width="3dip" android:color="@color/lighter_corallium_blue"/>
+        android:topRightRadius="12dp" />
+    <stroke
+        android:width="3dip"
+        android:color="@color/lighter_corallium_blue" />
 </shape>

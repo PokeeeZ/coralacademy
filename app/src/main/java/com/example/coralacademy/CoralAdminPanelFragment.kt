@@ -1,14 +1,14 @@
 package com.example.coralacademy
 
-import androidx.fragment.app.Fragment
 import android.os.Bundle
-import android.widget.Toast
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.coralacademy.databinding.AdminAccountInfoViewBinding
 
 class CoralAdminPanelFragment : Fragment() {
@@ -54,12 +54,14 @@ class CoralAdminPanelFragment : Fragment() {
             Toast.makeText(context, "IDs reset to zero.", Toast.LENGTH_SHORT).show()
         }
     }
+
     private fun addTableHeader() {
         val context = requireContext()
         val userDataTable: TableLayout = binding.userDataTable
 
         // Inflate and add the header row
-        val headerRow = LayoutInflater.from(context).inflate(R.layout.user_data_column, null, false) as TableRow
+        val headerRow =
+            LayoutInflater.from(context).inflate(R.layout.user_data_column, null, false) as TableRow
         val idHeader = headerRow.findViewById<TextView>(R.id.account_id)
         val usernameHeader = headerRow.findViewById<TextView>(R.id.account_username)
         val passwordHeader = headerRow.findViewById<TextView>(R.id.account_password)
@@ -81,7 +83,7 @@ class CoralAdminPanelFragment : Fragment() {
         // Access the TableLayout using binding
         val userDataTable: TableLayout = binding.userDataTable
 
-            // Remove existing data rows but keep the header row
+        // Remove existing data rows but keep the header row
         val childCount = userDataTable.childCount
 
         if (childCount > 1) {

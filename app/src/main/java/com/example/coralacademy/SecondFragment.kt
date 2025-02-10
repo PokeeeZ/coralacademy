@@ -1,14 +1,11 @@
 package com.example.coralacademy
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.coralacademy.databinding.FragmentSecondBinding
 
@@ -36,9 +33,9 @@ class SecondFragment : Fragment() {
 
         binding.loginButton.setOnClickListener(View.OnClickListener {
             if (binding.usernameInput.text.toString() == "user" && binding.passwordInput.text.toString() == "1234") {
-                if (binding.checkBox.isChecked()) {
+                if (binding.checkBox.isChecked) {
                     Toast.makeText(requireContext(), loginSuccessCoral, Toast.LENGTH_SHORT)
-                            .show()
+                        .show()
                     findNavController().navigate(R.id.action_SecondFragment_to_homeScreenFrag)
                 } else {
                     Toast.makeText(requireContext(), loginSuccess, Toast.LENGTH_SHORT).show()
@@ -65,9 +62,9 @@ class SecondFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-            super.onDestroyView()
-            _binding = null
-        }
+        super.onDestroyView()
+        _binding = null
+    }
 
 
 }

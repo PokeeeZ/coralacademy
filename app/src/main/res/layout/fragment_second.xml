@@ -45,12 +45,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_corner"
             android:hint="Password"
             android:inputType="textPassword"
+            android:padding="16dp"
             android:textColor="#000000"
             android:textColorHint="@color/black"
-            android:background="@drawable/rounded_corner"
-            android:padding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -78,8 +78,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginButton"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -102,8 +101,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.461"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password_input">
-        </CheckBox>
+            app:layout_constraintTop_toBottomOf="@+id/password_input"></CheckBox>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

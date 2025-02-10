@@ -55,6 +55,25 @@
         Welcome to Coral Academy!
     </string>
 
+    <string name="semester2_schedule_mon">
+        Gwak, James, Jesse, Shirley [Morning Break]
+    </string>
+
+    <string name="semester2_schedule_tue">
+        Kaden, Yolanda, Shirley [US Lunch] | Addison, Tiffany, Edwina [After School]
+    </string>
+
+    <string name="semester2_schedule_wed">
+        Gwak, Conan [Morning Break] | Edward, Isaac [After School]
+    </string>
+
+    <string name="semester2_schedule_thur">
+        Gwak, Conan, Isabella [Morning Break] | Addison, Hilary [After School]
+    </string>
+
+    <string name="semester2_schedule_fri">
+        Kaden, Victoria (US Lunch), with Tobin on P8 for any unfinished business
+    </string>
 
     <!-- Strings used for Admin Panel -->
 

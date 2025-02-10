@@ -1,12 +1,11 @@
 package com.example.coralacademy
 
-import android.content.Context
 import android.content.ContentValues
+import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import android.widget.Toast
-import androidx.annotation.Nullable
 
 
 const val DATABASE_NAME = "CoralDB"
@@ -17,14 +16,15 @@ const val COL_COR_STATUS = "coralMemberStatus"
 const val COL_ID = "id"
 const val DATABASE_VERSION = 1
 
-class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class DataBaseHandler(var context: Context) :
+    SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     override fun onCreate(db: SQLiteDatabase) {
         val createTable = "CREATE TABLE $TABLE_NAME (" +
                 "$COL_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "$COL_NAME VARCHAR(256)," +
                 "$COL_PASS VARCHAR(256)," +
-                "$COL_COR_STATUS INTEGER)";
+                "$COL_COR_STATUS INTEGER)"
         db.execSQL(createTable)
     }
 
@@ -33,20 +33,19 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         onCreate(db)
     }
 
-    fun insertData(user : User): Long {
+    fun insertData(user: User): Long {
         val db = this.writableDatabase
         val cv = ContentValues()
-        cv.put(COL_NAME,user.getUser())
-        cv.put(COL_PASS,user.getPass())
+        cv.put(COL_NAME, user.getUser())
+        cv.put(COL_PASS, user.getPass())
         cv.put(COL_COR_STATUS, if (user.getMemStat()) 1 else 0)
 
-        val result = db.insert(TABLE_NAME,null,cv)
+        val result = db.insert(TABLE_NAME, null, cv)
 
         if (result == -1L) {
             Log.e("DatabaseError", "Failed to insert data for user: ${user.getUser()}")
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
-        }
-        else {
+        } else {
             Log.d("DatabaseSuccess", "Successfully inserted data for user: ${user.getUser()}")
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
         }
@@ -55,19 +54,20 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         return result
     }
 
-    fun readData() : MutableList<User> {
-        var list : MutableList<User> = ArrayList()
+    fun readData(): MutableList<User> {
+        var list: MutableList<User> = ArrayList()
 
         val db = this.readableDatabase
         val query = "Select * from $TABLE_NAME"
-        val result = db.rawQuery(query,null)
-        if(result.moveToFirst()){
+        val result = db.rawQuery(query, null)
+        if (result.moveToFirst()) {
             do {
                 val user = User(
-                id = result.getInt(result.getColumnIndex(COL_ID)),
-                username = result.getString(result.getColumnIndex(COL_NAME)),
-                password = result.getString(result.getColumnIndex(COL_PASS)),
-                coralMemberStatus = result.getInt(result.getColumnIndex(COL_COR_STATUS)) == 1)
+                    id = result.getInt(result.getColumnIndex(COL_ID)),
+                    username = result.getString(result.getColumnIndex(COL_NAME)),
+                    password = result.getString(result.getColumnIndex(COL_PASS)),
+                    coralMemberStatus = result.getInt(result.getColumnIndex(COL_COR_STATUS)) == 1
+                )
                 list.add(user)
             } while (result.moveToNext())
         }
@@ -77,9 +77,9 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         return list
     }
 
-    fun deleteData(){
+    fun deleteData() {
         val db = this.writableDatabase
-        db.delete(TABLE_NAME,null,null)
+        db.delete(TABLE_NAME, null, null)
         db.close()
     }
 
@@ -91,15 +91,18 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
             do {
                 val cv = ContentValues()
                 cv.put(COL_PASS, result.getString(result.getColumnIndex(COL_PASS)))
-                db.update(TABLE_NAME, cv, "$COL_ID=? AND $COL_NAME=?",
-                    arrayOf(result.getString(result.getColumnIndex(COL_ID)),
-                        result.getString(result.getColumnIndex(COL_NAME)))
+                db.update(
+                    TABLE_NAME, cv, "$COL_ID=? AND $COL_NAME=?",
+                    arrayOf(
+                        result.getString(result.getColumnIndex(COL_ID)),
+                        result.getString(result.getColumnIndex(COL_NAME))
+                    )
                 )
             } while (result.moveToNext())
         }
-    result.close()
-    db.close()
-}
+        result.close()
+        db.close()
+    }
 
     fun resetIDs() {
         val db = this.writableDatabase
