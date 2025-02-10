@@ -55,7 +55,7 @@ class DataBaseHandler(var context: Context) :
     }
 
     fun readData(): MutableList<User> {
-        var list: MutableList<User> = ArrayList()
+        val list: MutableList<User> = ArrayList()
 
         val db = this.readableDatabase
         val query = "Select * from $TABLE_NAME"
@@ -63,10 +63,18 @@ class DataBaseHandler(var context: Context) :
         if (result.moveToFirst()) {
             do {
                 val user = User(
-                    id = result.getInt(result.getColumnIndex(COL_ID)),
-                    username = result.getString(result.getColumnIndex(COL_NAME)),
-                    password = result.getString(result.getColumnIndex(COL_PASS)),
-                    coralMemberStatus = result.getInt(result.getColumnIndex(COL_COR_STATUS)) == 1
+                    id = result.getInt(result.getColumnIndex(COL_ID).let { index ->
+                        if (index > -1) result.getInt(index) else 0 // Change this to proper debugging
+                    }),
+                    username = result.getString(result.getColumnIndex(COL_NAME).let { index ->
+                        if (index > -1) result.getInt(index) else 0
+                    }),
+                    password = result.getString(result.getColumnIndex(COL_PASS).let { index ->
+                        if (index > -1) result.getInt(index) else 0
+                    }),
+                    coralMemberStatus = result.getInt(result.getColumnIndex(COL_COR_STATUS).let { index ->
+                        if (index > -1) result.getInt(index) else 0
+                    }) == 1
                 )
                 list.add(user)
             } while (result.moveToNext())
@@ -90,12 +98,18 @@ class DataBaseHandler(var context: Context) :
         if (result.moveToFirst()) {
             do {
                 val cv = ContentValues()
-                cv.put(COL_PASS, result.getString(result.getColumnIndex(COL_PASS)))
+                cv.put(COL_PASS, result.getString(result.getColumnIndex(COL_PASS).let { index ->
+                    if (index > -1) result.getInt(index) else 0
+                }))
                 db.update(
                     TABLE_NAME, cv, "$COL_ID=? AND $COL_NAME=?",
                     arrayOf(
-                        result.getString(result.getColumnIndex(COL_ID)),
-                        result.getString(result.getColumnIndex(COL_NAME))
+                        result.getString(result.getColumnIndex(COL_ID).let { index ->
+                            if (index > -1) result.getInt(index) else 0
+                        }),
+                        result.getString(result.getColumnIndex(COL_NAME).let { index ->
+                            if (index > -1) result.getInt(index) else 0
+                        })
                     )
                 )
             } while (result.moveToNext())
