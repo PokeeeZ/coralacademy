@@ -17,7 +17,6 @@
         android:fontFamily="sans-serif-black"
         android:padding="15dp"
         android:text="@string/home_screen_welcome"
-
         android:textAlignment="center"
         android:textColor="@color/corallium_red"
         android:textSize="24sp"
@@ -32,7 +31,6 @@
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_marginTop="40dp"
-
         android:fontFamily="sans-serif-black"
         android:text="Schedule"
         android:textAlignment="center"
@@ -59,28 +57,38 @@
         android:id="@+id/selectedDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
         android:text="Selected Date: "
-        app:layout_constraintEnd_toStartOf="@+id/dateTV"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="514dp" />
+        app:layout_constraintTop_toBottomOf="@+id/scheduleCalendar" />
 
     <TextView
         android:id="@+id/dateTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="264dp"
-        android:text="blank"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="232dp"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="514dp" />
+        app:layout_constraintHorizontal_bias="0.304"
+        app:layout_constraintStart_toEndOf="@+id/selectedDate"
+        app:layout_constraintTop_toBottomOf="@+id/scheduleCalendar"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tmMembers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="members"
-        android:textColor="@color/white"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="550dp" />
+        android:padding="8dp"
+        android:text=""
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scheduleCalendar"
+        app:layout_constraintVertical_bias="0.159" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
