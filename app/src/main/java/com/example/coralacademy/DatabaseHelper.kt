@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import android.widget.Toast
 
-
 const val DATABASE_NAME = "CoralDB"
 const val TABLE_NAME = "Users"
 const val COL_NAME = "username"
@@ -56,34 +55,32 @@ class DataBaseHandler(var context: Context) :
 
     fun readData(): MutableList<User> {
         val list: MutableList<User> = ArrayList()
-
         val db = this.readableDatabase
         val query = "Select * from $TABLE_NAME"
         val result = db.rawQuery(query, null)
         if (result.moveToFirst()) {
             do {
-                val user = User(
-                    id = result.getInt(result.getColumnIndex(COL_ID).let { index ->
-                        if (index > -1) result.getInt(index) else 0 // Change this to proper debugging
-                    }),
-                    username = result.getString(result.getColumnIndex(COL_NAME).let { index ->
-                        if (index > -1) result.getInt(index) else 0
-                    }),
-                    password = result.getString(result.getColumnIndex(COL_PASS).let { index ->
-                        if (index > -1) result.getInt(index) else 0
-                    }),
-                    coralMemberStatus = result.getInt(result.getColumnIndex(COL_COR_STATUS).let { index ->
-                        if (index > -1) result.getInt(index) else 0
-                    }) == 1
-                )
-                list.add(user)
+                val idIndex = result.getColumnIndex(COL_ID)
+                val nameIndex = result.getColumnIndex(COL_NAME)
+                val passIndex = result.getColumnIndex(COL_PASS)
+                val statusIndex = result.getColumnIndex(COL_COR_STATUS)
+
+                if (idIndex >= 0 && nameIndex >= 0 && passIndex >= 0 && statusIndex >= 0) {
+                    val user = User(
+                        id = result.getInt(idIndex),
+                        username = result.getString(nameIndex),
+                        password = result.getString(passIndex),
+                        coralMemberStatus = result.getInt(statusIndex) == 1
+                    )
+                    list.add(user)
+                }
             } while (result.moveToNext())
         }
-
         result.close()
         db.close()
         return list
     }
+
 
     fun deleteData() {
         val db = this.writableDatabase
@@ -93,30 +90,33 @@ class DataBaseHandler(var context: Context) :
 
     fun updateData() {
         val db = this.writableDatabase
-        val query = "Select * from " + TABLE_NAME
+        val query = "Select * from $TABLE_NAME"
         val result = db.rawQuery(query, null)
         if (result.moveToFirst()) {
             do {
-                val cv = ContentValues()
-                cv.put(COL_PASS, result.getString(result.getColumnIndex(COL_PASS).let { index ->
-                    if (index > -1) result.getInt(index) else 0
-                }))
-                db.update(
-                    TABLE_NAME, cv, "$COL_ID=? AND $COL_NAME=?",
-                    arrayOf(
-                        result.getString(result.getColumnIndex(COL_ID).let { index ->
-                            if (index > -1) result.getInt(index) else 0
-                        }),
-                        result.getString(result.getColumnIndex(COL_NAME).let { index ->
-                            if (index > -1) result.getInt(index) else 0
-                        })
+                val idIndex = result.getColumnIndex(COL_ID)
+                val nameIndex = result.getColumnIndex(COL_NAME)
+                val passIndex = result.getColumnIndex(COL_PASS)
+                val statusIndex = result.getColumnIndex(COL_COR_STATUS)
+
+                if (idIndex >= 0 && nameIndex >= 0 && passIndex >= 0 && statusIndex >= 0) {
+                    val cv = ContentValues()
+                    cv.put(COL_PASS, result.getString(passIndex))
+
+                    db.update(
+                        TABLE_NAME, cv, "$COL_ID=? AND $COL_NAME=?",
+                        arrayOf(
+                            result.getString(idIndex),
+                            result.getString(nameIndex)
+                        )
                     )
-                )
+                }
             } while (result.moveToNext())
         }
         result.close()
         db.close()
     }
+
 
     fun resetIDs() {
         val db = this.writableDatabase
@@ -126,9 +126,7 @@ class DataBaseHandler(var context: Context) :
         Toast.makeText(context, "IDs have been reset.", Toast.LENGTH_SHORT).show()
     }
 
-
     override fun onDowngrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         onUpgrade(db, oldVersion, newVersion)
     }
-
 }

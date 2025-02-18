@@ -19,6 +19,7 @@ class SecondFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private lateinit var dbHandler: DataBaseHandler
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,26 +27,31 @@ class SecondFragment : Fragment() {
     ): View {
 
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        dbHandler = DataBaseHandler(requireContext())
 
         val loginSuccess = "Login Successful!"
         val loginSuccessCoral = "Login Successful! Welcome Corallium member!"
         val loginFail = "Login Failed!"
 
-        binding.loginButton.setOnClickListener(View.OnClickListener {
-            if (binding.usernameInput.text.toString() == "user" && binding.passwordInput.text.toString() == "1234") {
-                if (binding.checkBox.isChecked) {
-                    Toast.makeText(requireContext(), loginSuccessCoral, Toast.LENGTH_SHORT)
-                        .show()
-                    findNavController().navigate(R.id.action_SecondFragment_to_homeScreenFrag)
+        binding.loginButton.setOnClickListener {
+
+            val username = binding.usernameInput.text.toString()
+            val password = binding.passwordInput.text.toString()
+
+            val user = dbHandler.readData().find { it.getUser() == username && it.getPass() == password }
+
+            if (user != null) {
+                if (binding.checkBox.isChecked && user.getMemStat()) {
+                    Toast.makeText(requireContext(), loginSuccessCoral, Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_SecondFragment_to_homeScreenCoralFrag)
                 } else {
                     Toast.makeText(requireContext(), loginSuccess, Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_SecondFragment_to_homeScreenFrag)
+                    findNavController().navigate(R.id.action_SecondFragment_to_homeScreenRegularFrag)
                 }
             } else {
                 Toast.makeText(requireContext(), loginFail, Toast.LENGTH_SHORT).show()
             }
-
-        })
+        }
 
         return binding.root
 

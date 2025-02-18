@@ -43,7 +43,7 @@ class ThirdFragment : Fragment() {
                 val db = DataBaseHandler(context)
                 db.insertData(user)
 
-                findNavController().navigate(R.id.action_ThirdFragment_to_homeScreenFrag)
+                findNavController().navigate(R.id.action_ThirdFragment_to_SecondFragment)
 
             } else if (username.isNotEmpty() && password.isEmpty() || passwordCheck.isEmpty()) {
                 Toast.makeText(

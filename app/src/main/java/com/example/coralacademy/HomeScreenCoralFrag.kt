@@ -8,6 +8,10 @@ import android.view.ViewGroup
 import android.widget.CalendarView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import android.widget.Button
+import androidx.navigation.fragment.findNavController
+import com.example.coralacademy.databinding.FragmentFirstBinding
+import com.example.coralacademy.databinding.FragmentHomeScreenCoralBinding
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -23,6 +27,11 @@ class HomeScreenCoralFrag : Fragment() {
     private lateinit var dateTV: TextView
     private lateinit var tmMembers: TextView
     private lateinit var scheduleCalendar: CalendarView
+    private lateinit var adminPanel: Button
+
+    private var _binding: FragmentHomeScreenCoralBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +49,11 @@ class HomeScreenCoralFrag : Fragment() {
         dateTV = view.findViewById(R.id.dateTV)
         scheduleCalendar = view.findViewById(R.id.scheduleCalendar)
         tmMembers = view.findViewById(R.id.tmMembers)
+        adminPanel = view.findViewById(R.id.adminPanel_button)
+
+        _binding = FragmentHomeScreenCoralBinding.inflate(inflater, container, false)
+
+
 
         scheduleCalendar.setOnDateChangeListener { _, year, month, dayOfMonth ->
             val date = (dayOfMonth.toString() + "-" + (month + 1) + "-" + year)
@@ -66,7 +80,11 @@ class HomeScreenCoralFrag : Fragment() {
             }
         }
 
-        return view
+        binding.adminPanelButton.setOnClickListener {
+            findNavController().navigate(R.id.action_homeScreenCoralFrag_to_CoralAdminPanel)
+        }
+
+        return binding.root
     }
 
     companion object {

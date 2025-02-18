@@ -27,29 +27,46 @@
             android:id="@+id/action_SecondFragment_to_ThirdFragment"
             app:destination="@id/ThirdFragment" />
         <action
-            android:id="@+id/action_SecondFragment_to_homeScreenFrag"
-            app:destination="@id/homeScreenFrag" />
+            android:id="@+id/action_SecondFragment_to_homeScreenCoralFrag"
+            app:destination="@id/homeScreenCoralFrag" />
+        <action
+            android:id="@+id/action_SecondFragment_to_homeScreenRegularFrag"
+            app:destination="@id/homeScreenRegularFrag" />
     </fragment>
+
     <fragment
         android:id="@+id/ThirdFragment"
         android:name="com.example.coralacademy.ThirdFragment"
         android:label="@string/third_fragment_label"
         tools:layout="@layout/fragment_third">
         <action
-            android:id="@+id/action_ThirdFragment_to_homeScreenFrag"
-            app:destination="@id/homeScreenFrag" />
+            android:id="@+id/action_ThirdFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+
     </fragment>
+
     <fragment
-        android:id="@+id/homeScreenFrag"
+        android:id="@+id/homeScreenCoralFrag"
         android:name="com.example.coralacademy.HomeScreenCoralFrag"
         android:label="Home"
-        tools:layout="@layout/fragment_home_screen_coral" />
+        tools:layout="@layout/fragment_home_screen_coral" >
+        <action
+            android:id="@+id/action_homeScreenCoralFrag_to_CoralAdminPanel"
+            app:destination="@id/CoralAdminPanel" />
+    </fragment>
 
     <fragment
         android:id="@+id/CoralAdminPanel"
         android:name="com.example.coralacademy.CoralAdminPanelFragment"
         android:label=""
         tools:layout="@layout/admin_account_info_view" />
+
+    <fragment
+        android:id="@+id/homeScreenRegularFrag"
+        android:name="com.example.coralacademy.HomeScreenRegularFrag"
+        android:label="Home"
+        tools:layout="@layout/fragment_home_screen_regular">
+    </fragment>
 
 
 </navigation>

@@ -49,10 +49,18 @@
     </string>
 
 
-    <!-- Strings used for Home Screen page -->
+    <!-- Strings used for Coral Home Screen page -->
 
     <string name="home_screen_welcome">
         Welcome to Coral Academy!
+    </string>
+
+    <string name="open_day_text_one">
+        Corallium was invited to be part of YCIS\'s Open Day, where we had a booth on the ground floor. We sold homemade coral-themed cookies that were made by the team, and we also had a minigame about tank maintenance.
+    </string>
+
+    <string name="open_day_text_two">
+        We sold out all 200 of our cookies in just under 2 hours, and almost every single customer played the minigame as well, and some even followed our Instagram @coralliumhk.
     </string>
 
     <string name="semester2_schedule_mon">
@@ -80,5 +88,12 @@
     <string name="admin_panel_title">
         Admin Panel
     </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="schedule">Schedule</string>
+    <string name="admin_panel">Admin Panel</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="check_this_if_you_are_a_member_of_corallium">Check this if you are a member of Corallium.</string>
 
 </resources>

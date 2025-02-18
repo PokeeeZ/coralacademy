@@ -44,7 +44,7 @@
         android:layout_height="33dp"
         android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-black"
-        android:text="Open Day"
+        android:text="Open Day 2025"
         android:textAlignment="center"
         android:textColor="@color/corallium_red"
         android:textSize="20sp"
@@ -54,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/current_events_text" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/openDay_prep_pic"
         android:layout_width="239dp"
         android:layout_height="185dp"
         android:layout_marginTop="4dp"
@@ -62,5 +62,54 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/current_events_text2"
         app:srcCompat="@drawable/corallium_pre_open_day_stuff" />
+
+    <TextView
+        android:id="@+id/openDay_text_one"
+        android:layout_width="335dp"
+        android:layout_height="147dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif-black"
+        android:padding="8dp"
+        android:text="@string/open_day_text_one"
+        android:textAlignment="center"
+        android:textColor="@color/corallium_red"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/openDay_prep_pic"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/openDay_text_two"
+        android:layout_width="211dp"
+        android:layout_height="175dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="168dp"
+        android:fontFamily="sans-serif-black"
+        android:padding="8dp"
+        android:text="@string/open_day_text_two"
+        android:textAlignment="textEnd"
+        android:textColor="@color/corallium_red"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/openDay_soldout"
+        app:layout_constraintTop_toBottomOf="@+id/openDay_text_one"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/openDay_soldout"
+        android:layout_width="129dp"
+        android:layout_height="179dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="96dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/openDay_text_one"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/corallium_open_day_sold_out" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
