@@ -49,7 +49,6 @@ class AccountCreationPage : Fragment() {
                     val user = User(id, username, password, coralMemberStatus = false)
                     val db = DataBaseHandler(context)
                     db.insertData(user)
-
                 }
 
                 findNavController().navigate(R.id.action_ThirdFragment_to_SecondFragment)
