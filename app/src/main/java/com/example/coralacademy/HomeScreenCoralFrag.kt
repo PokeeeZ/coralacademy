@@ -44,40 +44,37 @@ class HomeScreenCoralFrag : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.fragment_home_screen_coral, container, false)
-        dateTV = view.findViewById(R.id.dateTV)
-        scheduleCalendar = view.findViewById(R.id.scheduleCalendar)
-        tmMembers = view.findViewById(R.id.tmMembers)
-        adminPanel = view.findViewById(R.id.adminPanel_button)
-
         _binding = FragmentHomeScreenCoralBinding.inflate(inflater, container, false)
 
-
+        dateTV = binding.dateTV
+        scheduleCalendar = binding.scheduleCalendar
+        tmMembers = binding.tmMembers
+        adminPanel = binding.adminPanelButton
 
         scheduleCalendar.setOnDateChangeListener { _, year, month, dayOfMonth ->
-            val date = (dayOfMonth.toString() + "-" + (month + 1) + "-" + year)
-            dateTV.text = date
+                val date = (dayOfMonth.toString() + "-" + (month + 1) + "-" + year)
+                dateTV.text = date
 
-            val selected = Calendar.getInstance()
-            selected.set(year, month, dayOfMonth)
-            val weekDay = selected.get(Calendar.DAY_OF_WEEK)
+                val selected = Calendar.getInstance()
+                selected.set(year, month, dayOfMonth)
+                val weekDay = selected.get(Calendar.DAY_OF_WEEK)
 
-            val mon = "Gwak, James, Jesse, Shirley [Morning Break]"
-            val tue = "Kaden, Yolanda, Shirley [US Lunch] | Addison, Tiffany, Edwina [After School]"
-            val wed = "Gwak, Conan [Morning Break] | Edward, Isaac [After School]"
-            val thur = "Gwak, Conan, Isabella [Morning Break] | Addison, Hilary [After School]"
-            val fri = "Kaden, Victoria (US Lunch), with Tobin on P8 for any unfinished business"
-            val weekend = "No Tank Maintenance today!"
+                val mon = "Gwak, James, Jesse, Shirley [Morning Break]"
+                val tue = "Kaden, Yolanda, Shirley [US Lunch] | Addison, Tiffany, Edwina [After School]"
+                val wed = "Gwak, Conan [Morning Break] | Edward, Isaac [After School]"
+                val thur = "Gwak, Conan, Isabella [Morning Break] | Addison, Hilary [After School]"
+                val fri = "Kaden, Victoria (US Lunch), with Tobin on P8 for any unfinished business"
+                val weekend = "No Tank Maintenance today!"
 
-            when (weekDay) {
-                Calendar.SUNDAY -> tmMembers.text = mon
-                Calendar.MONDAY -> tmMembers.text = tue
-                Calendar.TUESDAY -> tmMembers.text = wed
-                Calendar.WEDNESDAY -> tmMembers.text = thur
-                Calendar.THURSDAY -> tmMembers.text = fri
-                else -> tmMembers.text = weekend
+                when (weekDay) {
+                    Calendar.MONDAY -> tmMembers.text = mon
+                    Calendar.TUESDAY -> tmMembers.text = tue
+                    Calendar.WEDNESDAY -> tmMembers.text = wed
+                    Calendar.THURSDAY -> tmMembers.text = thur
+                    Calendar.FRIDAY -> tmMembers.text = fri
+                    else -> tmMembers.text = weekend
+                }
             }
-        }
 
         binding.adminPanelButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeScreenCoralFrag_to_CoralAdminPanel)
