@@ -10,7 +10,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
-import com.example.coralacademy.databinding.FragmentFirstBinding
 import com.example.coralacademy.databinding.FragmentHomeScreenCoralBinding
 
 private const val ARG_PARAM1 = "param1"
