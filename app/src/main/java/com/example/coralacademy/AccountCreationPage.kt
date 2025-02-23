@@ -37,11 +37,21 @@ class AccountCreationPage : Fragment() {
             val username = binding.createUsername.text.toString()
             val password = binding.createAccountPassword.text.toString()
             val passwordCheck = binding.createAccountPasswordCheck.text.toString()
+            val coralMemberStatus = binding.coralMemberCheckbox
 
             if (username.isNotEmpty() && password.length >= 6 && password == passwordCheck) {
-                val user = User(id, username, password, coralMemberStatus = false)
-                val db = DataBaseHandler(context)
-                db.insertData(user)
+
+                if (binding.coralMemberCheckbox.isChecked) {
+                    val user = User(id, username, password, coralMemberStatus = true)
+                    val db = DataBaseHandler(context)
+                    db.insertData(user)
+
+                } else {
+                    val user = User(id, username, password, coralMemberStatus = false)
+                    val db = DataBaseHandler(context)
+                    db.insertData(user)
+
+                }
 
                 findNavController().navigate(R.id.action_ThirdFragment_to_SecondFragment)
 

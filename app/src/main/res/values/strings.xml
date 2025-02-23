@@ -43,11 +43,9 @@
         Password needs to be 6-20 characters
     </string>
 
-
-    <string name="corallium_member_prompt">
-        If you are a member of Corallium, contact @Poke on discord for your specific login details.
+    <string name="coralMember_checkbox">
+        Are you a member of Corallium?
     </string>
-
 
     <!-- Strings used for Coral Home Screen page -->
 
