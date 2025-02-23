@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.coralacademy.databinding.FragmentThirdBinding
 
 
-class ThirdFragment : Fragment() {
+class AccountCreationPage : Fragment() {
 
     private var _binding: FragmentThirdBinding? = null
 

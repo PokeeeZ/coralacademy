@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.example.coralacademy.SecondFragment"
+        android:name="com.example.coralacademy.LoginPage"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
         <action
@@ -36,7 +36,7 @@
 
     <fragment
         android:id="@+id/ThirdFragment"
-        android:name="com.example.coralacademy.ThirdFragment"
+        android:name="com.example.coralacademy.AccountCreationPage"
         android:label="@string/third_fragment_label"
         tools:layout="@layout/fragment_third">
         <action

@@ -12,7 +12,7 @@ import com.example.coralacademy.databinding.FragmentSecondBinding
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class SecondFragment : Fragment() {
+class LoginPage : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
 
