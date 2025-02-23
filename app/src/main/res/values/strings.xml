@@ -94,5 +94,9 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="check_this_if_you_are_a_member_of_corallium">Check this if you are a member of Corallium.</string>
+    <string name="create_a_username">Create a username</string>
+    <string name="create_a_password">Create a password</string>
+    <string name="re_enter_the_password">Re-enter the password</string>
+    <string name="create_account">Create Account</string>
 
 </resources>
