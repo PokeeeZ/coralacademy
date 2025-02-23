@@ -37,7 +37,6 @@ class AccountCreationPage : Fragment() {
             val username = binding.createUsername.text.toString()
             val password = binding.createAccountPassword.text.toString()
             val passwordCheck = binding.createAccountPasswordCheck.text.toString()
-            val coralMemberStatus = binding.coralMemberCheckbox
 
             if (username.isNotEmpty() && password.length >= 6 && password == passwordCheck) {
 
