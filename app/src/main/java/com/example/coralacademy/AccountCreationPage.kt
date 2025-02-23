@@ -57,6 +57,14 @@ class AccountCreationPage : Fragment() {
                     "Please make sure your password is the correct length!",
                     Toast.LENGTH_SHORT
                 ).show()
+            } else if (username.isNotEmpty() && password.isNotEmpty() && passwordCheck.isNotEmpty()) {
+                if (password != passwordCheck) {
+                    Toast.makeText(
+                        context,
+                        "Please make sure your password is the same for both boxes!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             } else {
                 Toast.makeText(context, "Please fill in all the boxes!", Toast.LENGTH_SHORT).show()
             }

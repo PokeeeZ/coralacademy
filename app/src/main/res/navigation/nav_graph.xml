@@ -13,19 +13,19 @@
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/LoginPage" />
         <action
             android:id="@+id/action_FirstFragment_to_CoralAdminPanel"
             app:destination="@id/CoralAdminPanel" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
+        android:id="@+id/LoginPage"
         android:name="com.example.coralacademy.LoginPage"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
         <action
             android:id="@+id/action_SecondFragment_to_ThirdFragment"
-            app:destination="@id/ThirdFragment" />
+            app:destination="@id/AccountCreationPage" />
         <action
             android:id="@+id/action_SecondFragment_to_homeScreenCoralFrag"
             app:destination="@id/homeScreenCoralFrag" />
@@ -35,13 +35,13 @@
     </fragment>
 
     <fragment
-        android:id="@+id/ThirdFragment"
+        android:id="@+id/AccountCreationPage"
         android:name="com.example.coralacademy.AccountCreationPage"
         android:label="@string/third_fragment_label"
         tools:layout="@layout/fragment_third">
         <action
             android:id="@+id/action_ThirdFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/LoginPage" />
 
     </fragment>
 
